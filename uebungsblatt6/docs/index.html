@@ -1,0 +1,110 @@
+<html>
+    <head>
+        <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
+        <script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script>
+    </head>
+    <body>
+         <a-scene>
+            <a-assets>
+                <img id="floor" src ="assets/floor.jpg">
+                <img id ="wall" src = "assets/wall.jpg">
+                <img id ="stone" src = "assets/stone.jpg">
+                <a-asset-item id="spaceship" src="assets/model.gltf"></a-asset-item>
+                <a-asset-item id ="planets" src ="assets/Planets.gltf"></a-asset-item>
+                <img id="blackHole" src="assets/Black-hole.jpg"> 
+                <audio id="space2" src="assets/Space_Tunnel .mp3"></audio>
+                <audio id="warning" src="assets/Spaceship_Alarm.mp3"></audio>
+                <audio id="space" src="assets/Space.mp3"></audio>
+            </a-assets>
+
+           <a-camera>
+               <a-cursor></a-cursor>
+           </a-camera> 
+
+            <a-sky id ="sky" src="#wall" material geometry></a-sky>
+            <a-plane id ="floor" src="#wall"  rotation="-90 0 0" scale="100 100 1" material geometry></a-plane>
+
+            <a-entity light="
+            type: ambient;
+            intensity: 0.7;"></a-entity>
+
+            <a-sphere id ="box1" src="#stone" , position="-7 4 -4" 
+            animation="
+            property: rotation;
+            from: 0 0 0;
+            to: 360 0 0;
+            easing: linear;
+            dur: 15000;
+            loop: true"></a-sphere>
+
+
+            <a-sphere id ="box2" src="#stone" position="-0.3 1 -5" animation__2="
+            easing:  linear;  
+            from:  0 0 0;  
+            property:  rotation;  
+            to:  0 360 0;  
+            dur:  20000;
+            loop:  true"></a-sphere>
+
+            <a-sphere id ="box3" src="#stone" position="3.5 2 -16"  animation__3="
+            property: rotation;
+            from: 0 0 0;
+            to: 0 360 0;
+            easing: linear;
+            dur: 5000;
+            loop: true" animation__4="
+            property: scale;
+            dir: alternate;
+            from: 1 1 1;
+            to: 1.5 1.5 1.5;
+            easing: linear;
+            dur: 5000;
+            loop: true"></a-sphere>
+
+            <a-sphere id="hole" src="#blackHole" shadow="cast: true" position="10 17 -16" scale="3 2 0.1" animation__6="
+            property: rotation;
+            from: 0 0 0;
+            to: 3 3 3;
+            dir: alternate;
+            loop: true"
+            event-set__mouseenter="visible: false"
+            event-set__mouseleave="visible: true"></a-sphere>
+
+            <a-sphere id ="box4" src="#stone" position="18 6 -13" animation__7="
+            property: rotation;
+            from: 0 0 0;
+            to: 360 0 0;
+            easing: linear;
+            dur: 15000;
+            loop: true"></a-sphere>
+
+           <a-sphere id="sound" src="#stone" position="4.17544 1.83012 -2" sound__2="
+           src: #space;
+           loop: true;
+           autoplay: true;
+           distanceModel: exponential;
+           rolloffFactor: 1.5;" animation__8="
+           property: rotation;
+           from: 0 0 0;
+           to: 0 0 360;
+           easing: linear;
+           dur: 8000;
+           loop: true"></a-sphere>
+
+
+
+           <a-gltf-model position="0 3.5 -5" src="#spaceship" 
+           scale="0.750 0.750 0.750" rotation="35 35 15"
+           sound="src: #warning; on: click; loop: false;" 
+           animation__5="
+           property: rotation;
+           from: 0 0 0;
+           to: 25 0 0;
+           dur: 5000;
+           dir: alternate;
+           loop: true" gltf-model></a-gltf-model>
+
+           <a-gltf-model shadow="cast: true" position="30 20 -85" src="#planets" gltf-model></a-gltf-model> 
+        </a-scene> 
+    </body>
+</html> -
